@@ -10,6 +10,8 @@ public class Settings : ScriptableObject
     [SerializeField] private float xMovementRange;
     [SerializeField] private float minScale;
     [SerializeField] private float maxScale;
+    [SerializeField] private float thumbleSpeed;
+    [SerializeField] private float distance;
 
 
 
@@ -18,6 +20,8 @@ public class Settings : ScriptableObject
     public float XMovementRange { get => xMovementRange; set => xMovementRange = value; }
     public float MaxScale { get => maxScale; set => maxScale = value; }
     public float MinScale { get => minScale; set => minScale = value; }
+    public float ThumbleSpeed { get => thumbleSpeed; set => thumbleSpeed = value; }
+    public float Distance { get => distance; set => distance = value; }
 
     // Start is called before the first frame update
     void Start()

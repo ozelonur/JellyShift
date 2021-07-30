@@ -18,7 +18,7 @@ public class FinishLine : MonoBehaviour, IProperty
     }
     public void Interact()
     {
-        print("GameCompleted");
+        GetComponent<Collider>().enabled = false;
         gameManager.GameComplete();
     }
 }

@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
                 MouseHold(Input.mousePosition);
             }
 
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -settings.XMovementRange, settings.XMovementRange), transform.position.y, transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, 0, 0), transform.position.y, transform.position.z);
             transform.localScale = new Vector3(Mathf.Clamp(transform.localScale.x, settings.MinScale, settings.MaxScale), Mathf.Clamp(transform.localScale.y, settings.MinScale, settings.MaxScale), transform.localScale.z);
         }
         
@@ -54,9 +54,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerController.IsPlaying)
         {
-            playerRigidbody.velocity = Vector3.Lerp(playerRigidbody.velocity, new Vector3(playerRigidbody.velocity.x, playerRigidbody.velocity.y, settings.Speed), 1f);
+            playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, playerRigidbody.velocity.y, settings.Speed);
             transform.localScale = Vector3.Lerp(transform.localScale, new Vector3(transform.localScale.x + transform.localScale.x * -difference.y, transform.localScale.y + transform.localScale.y * difference.y, transform.localScale.z), .01f);
 
+        }
+        else if (playerController.IsGameComplete)
+        {
+            transform.localScale = new Vector3(1, 1, .5f);
         }
 
     }

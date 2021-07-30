@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     private ObjectManager objectManager;
     private PlayerController playerController;
+    private LevelManager levelManager;
 
     public Action GameOver;
     public Action GameComplete;
@@ -25,7 +26,10 @@ public class GameManager : MonoBehaviour
     {
         objectManager = ObjectManager.Instance;
         playerController = PlayerController.Instance;
+        levelManager = LevelManager.Instance;
         objectManager.TapText.text = Constants.TAP_TO_PLAY_TEXT;
+
+        objectManager.DiamondCountText.text = Diamond.Instance.DiamondCount.ToString();
     }
 
     // Update is called once per frame
@@ -37,6 +41,10 @@ public class GameManager : MonoBehaviour
     public void OnClickStart()
     {
         if (playerController.IsGameOver)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        else if (playerController.IsGameComplete)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

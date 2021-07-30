@@ -9,8 +9,20 @@ public static class Constants
     public static string TRY_AGAIN_TEXT = "Try Again \n";
     public static string NEXT_LEVEL_TEXT = "Next Level \n";
 
+    // GameObjects
+    public static string TEMP = "Temp";
+
     // PlayerPrefs
     public static string LEVEL_INDEX = "LevelIndex";
+    public static string DIAMOND_COUNT = "DiamondCount";
+
+    // For Invokes
+    public static string LAUNCH_CONFETTI = "LaunchConfetti";
+    public static string CHANGE_ROAD_PIVOT = "ChangeRoadPivot";
+
+    // Layers
+    public static string DRAWER_LAYER = "Drawer";
+
 
 
 }

@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Settings
   m_EditorClassIdentifier: 
   speed: 5
-  sensivity: 15
+  sensivity: 25
   xMovementRange: 1
   minScale: 0.4
   maxScale: 3
+  thumbleSpeed: 300
+  distance: 100
