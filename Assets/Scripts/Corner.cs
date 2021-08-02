@@ -35,10 +35,8 @@ public class Corner : MonoBehaviour, IProperty
 
     public void Interact()
     {
-        print("Worked");
         if (currentRotation == Rotations.Left)
         {
-            print("Turning Left");
             transform.parent.transform.parent.DORotate(new Vector3(0, 0, 0), 1f);
         }
         else if (currentRotation == Rotations.Right)

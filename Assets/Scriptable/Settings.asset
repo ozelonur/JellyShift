@@ -17,5 +17,5 @@ MonoBehaviour:
   xMovementRange: 1
   minScale: 0.4
   maxScale: 3
-  thumbleSpeed: 300
+  thumbleSpeed: 500
   distance: 100
