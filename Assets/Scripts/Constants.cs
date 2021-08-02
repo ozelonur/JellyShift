@@ -19,6 +19,7 @@ public static class Constants
     // For Invokes
     public static string LAUNCH_CONFETTI = "LaunchConfetti";
     public static string CHANGE_ROAD_PIVOT = "ChangeRoadPivot";
+    public static string GAME_OVER = "GameOver";
 
     // Layers
     public static string DRAWER_LAYER = "Drawer";
