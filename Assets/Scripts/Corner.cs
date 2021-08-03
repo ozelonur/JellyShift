@@ -1,15 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 
 public class Corner : MonoBehaviour, IProperty
 {
     private PlayerController player;
     private RoadManager roadManager;
-
-    private float distance = 101.5f;
-
 
     private enum Rotations
     {
@@ -27,12 +22,6 @@ public class Corner : MonoBehaviour, IProperty
         roadManager = RoadManager.Instance;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-       
-    }
-
     public void Interact()
     {
         if (currentRotation == Rotations.Left)
@@ -44,8 +33,7 @@ public class Corner : MonoBehaviour, IProperty
             transform.parent.transform.parent.DORotate(new Vector3(0, -90, 0), 1f);
         }
         Invoke(Constants.CHANGE_ROAD_PIVOT, 1.3f);
-        print(player.transform.position);
-        roadManager.Distance += 100;
+ 
         GetComponent<Collider>().enabled = false;
     }
 

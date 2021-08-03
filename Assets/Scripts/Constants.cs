@@ -24,6 +24,10 @@ public static class Constants
     // Layers
     public static string DRAWER_LAYER = "Drawer";
 
+    // Collide Tags
+    public static string PLAYER = "Player";
+    public static string OBSTACLE = "Obstacle";
+
 
 
 }

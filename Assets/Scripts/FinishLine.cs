@@ -10,12 +10,6 @@ public class FinishLine : MonoBehaviour, IProperty
     {
         gameManager = GameManager.Instance;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void Interact()
     {
         GetComponent<Collider>().enabled = false;

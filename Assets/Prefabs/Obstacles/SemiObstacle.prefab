@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7834259380126828106}
   - component: {fileID: 279504141787521138}
+  - component: {fileID: 2775547298121738333}
   m_Layer: 8
   m_Name: Drawer
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,6 +45,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7, z: 0.1}
   m_Center: {x: 0, y: 0.35, z: 0}
+--- !u!114 &2775547298121738333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477303115806334755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5582910ed62c16a4ca9b6deae543b3af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6454196388106743048
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,9 +69,10 @@ GameObject:
   - component: {fileID: 6454196388106743052}
   - component: {fileID: 6454196388106743053}
   - component: {fileID: 6454196388106743054}
+  - component: {fileID: 6482930284988313504}
   m_Layer: 0
   m_Name: LeftBarrier
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +151,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6482930284988313504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454196388106743048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31a1046ce31c1f4eacff9b85fd55e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6454196388402966291
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,9 +175,10 @@ GameObject:
   - component: {fileID: 6454196388402966295}
   - component: {fileID: 6454196388402966288}
   - component: {fileID: 6454196388402966289}
+  - component: {fileID: 6976521693653532182}
   m_Layer: 0
   m_Name: RightBarrier
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,6 +257,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6976521693653532182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454196388402966291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31a1046ce31c1f4eacff9b85fd55e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6454196388524133764
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,9 +281,10 @@ GameObject:
   - component: {fileID: 6454196388524133784}
   - component: {fileID: 6454196388524133785}
   - component: {fileID: 6454196388524133786}
+  - component: {fileID: 27714770212748652}
   m_Layer: 0
   m_Name: TopBarrier
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -323,6 +363,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &27714770212748652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454196388524133764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31a1046ce31c1f4eacff9b85fd55e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6454196388822986610
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +384,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6454196388822986609}
-  - component: {fileID: 3443684078691825624}
   m_Layer: 0
   m_Name: SemiObstacle
   m_TagString: Untagged
@@ -359,18 +410,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3443684078691825624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6454196388822986610}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a31a1046ce31c1f4eacff9b85fd55e03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2399844876115641815
 PrefabInstance:
   m_ObjectHideFlags: 0

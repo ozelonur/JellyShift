@@ -5,10 +5,8 @@ using UnityEngine;
 public class RoadManager : MonoBehaviour
 {
     public static RoadManager Instance = null;
-    private PlayerController player;
 
     private float distance;
-    private int childCount = 0;
 
     public float Distance { get => distance; set => distance = value; }
 
@@ -22,16 +20,8 @@ public class RoadManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print(transform.childCount);
-        player = PlayerController.Instance;
-        Distance = ObjectManager.Instance.Settings.Distance;
+        Distance = PlayerController.Instance.Settings.Distance;
         transform.position = new Vector3(0, 0, Distance);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void ChangeRoadPivot()

@@ -23,10 +23,13 @@ public class DrawerManager : MonoBehaviour
     {
         if (Physics.Raycast(transform.position, transform.forward, out raycastHit, 20.0f, layerMask))
         {
-            print("Hitted a drawer");
             playerCopy.transform.position = raycastHit.transform.position;
             playerCopy.transform.localScale = transform.localScale;
 
+            playerShadow.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + (playerCopy.transform.position.z - transform.position.z) / 2);
+            playerShadow.transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, (playerCopy.transform.position.z - transform.position.z) * 2f);
+
         }
+
     }
 }

@@ -12,26 +12,17 @@ public class Settings : ScriptableObject
     [SerializeField] private float maxScale;
     [SerializeField] private float thumbleSpeed;
     [SerializeField] private float distance;
+    [SerializeField] private float feewerTime;
 
 
 
-    public float Speed { get => speed; set => speed = value; }
-    public float Sensivity { get => sensivity; set => sensivity = value; }
-    public float XMovementRange { get => xMovementRange; set => xMovementRange = value; }
-    public float MaxScale { get => maxScale; set => maxScale = value; }
-    public float MinScale { get => minScale; set => minScale = value; }
-    public float ThumbleSpeed { get => thumbleSpeed; set => thumbleSpeed = value; }
-    public float Distance { get => distance; set => distance = value; }
+    public float Speed { get => speed; }
+    public float Sensivity { get => sensivity; }
+    public float XMovementRange { get => xMovementRange; }
+    public float MaxScale { get => maxScale; }
+    public float MinScale { get => minScale; }
+    public float ThumbleSpeed { get => thumbleSpeed; }
+    public float Distance { get => distance; }
+    public float FeewerTime { get => feewerTime; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

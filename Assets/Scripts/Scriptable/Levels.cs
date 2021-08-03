@@ -5,19 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Levels", menuName = "Level", order = 1)]
 public class Levels : ScriptableObject
 {
-    [SerializeField] private GameObject[] levelPrefabs;
+    [SerializeField] private GameObject levelPrefab;
 
-    public GameObject[] LevelPrefabs { get => levelPrefabs; set => levelPrefabs = value; }
+    public GameObject LevelPrefabs { get => levelPrefab; set => levelPrefab = value; }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

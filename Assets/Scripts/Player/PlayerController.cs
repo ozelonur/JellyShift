@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IProperty
 {
     public static PlayerController Instance = null;
+    [SerializeField] private Settings settings;
 
     private GameManager gameManager;
     private ObjectManager objectManager;
-    private Settings settings;
+    private CanvasManager canvasManager;
+
 
     private Rigidbody playerRigidbody;
 
@@ -16,9 +19,13 @@ public class PlayerController : MonoBehaviour
     private bool isGameOver = false;
     private bool isGameComplete = false;
 
+    private int passedObstacleCount = 0;
+
     public bool IsPlaying { get => isPlaying; set => isPlaying = value; }
     public bool IsGameOver { get => isGameOver; set => isGameOver = value; }
     public bool IsGameComplete { get => isGameComplete; set => isGameComplete = value; }
+    public int PassedObstacleCount { get => passedObstacleCount; set => passedObstacleCount = value; }
+    public Settings Settings { get => settings; set => settings = value; }
 
     private void Awake()
     {
@@ -32,21 +39,15 @@ public class PlayerController : MonoBehaviour
     {
         gameManager = GameManager.Instance;
         objectManager = ObjectManager.Instance;
-        settings = objectManager.Settings;
+        canvasManager = CanvasManager.Instance;
         gameManager.GameOver += GameOver;
         gameManager.GameComplete += GameComplete;
         gameManager.GameComplete += Thumble;
 
 
         playerRigidbody = GetComponent<Rigidbody>();
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
-
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -64,8 +65,8 @@ public class PlayerController : MonoBehaviour
         isPlaying = false;
         isGameOver = true;
         playerRigidbody.velocity = Vector3.zero;
-        objectManager.TapText.gameObject.SetActive(true);
-        objectManager.TapText.text = Constants.TRY_AGAIN_TEXT;
+        canvasManager.TapText.gameObject.SetActive(true);
+        canvasManager.TapText.text = Constants.TRY_AGAIN_TEXT;
         
     }
 
@@ -77,25 +78,25 @@ public class PlayerController : MonoBehaviour
         playerRigidbody.velocity = Vector3.zero;
         playerRigidbody.freezeRotation = false;
         playerRigidbody.constraints = RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationY;
-        objectManager.TapText.gameObject.SetActive(true);
-        objectManager.TapText.text = Constants.NEXT_LEVEL_TEXT;
+        canvasManager.TapText.gameObject.SetActive(true);
+        canvasManager.TapText.text = Constants.NEXT_LEVEL_TEXT;
         LevelManager.Instance.LevelIndex++;
         Invoke(Constants.LAUNCH_CONFETTI, 1f);
     }
 
     private void LaunchConfetti()
     {
-        Instantiate(objectManager.Confetti, new Vector3(objectManager.TapText.transform.position.x, objectManager.TapText.transform.position.y, transform.position.z), Quaternion.identity);
-        //Confetti.Instance.LaunchEffect();
+        Instantiate(objectManager.Confetti, new Vector3(canvasManager.TapText.transform.position.x, canvasManager.TapText.transform.position.y, transform.position.z), Quaternion.identity);
     }
 
     private void Thumble()
     {
-        transform.position = new Vector3(transform.position.x, .5f, transform.position.z);
-        transform.GetChild(0).position = new Vector3(transform.GetChild(0).position.x, 0, transform.GetChild(0).position.z);
-        playerRigidbody.freezeRotation = false;
-        playerRigidbody.constraints = RigidbodyConstraints.FreezeRotationX & RigidbodyConstraints.FreezeRotationY;
-        playerRigidbody.useGravity = true;
-        playerRigidbody.AddForce(transform.forward * settings.ThumbleSpeed);
+        transform.DOMove(new Vector3(transform.position.x, transform.position.y + 2, transform.position.z + 3.5f), 1f);
+        transform.DORotate(new Vector3(180, 0, 0), 1f);
+    }
+
+    public void Interact()
+    {
+        transform.DOMoveZ(transform.position.z + 1, .2f);
     }
 }

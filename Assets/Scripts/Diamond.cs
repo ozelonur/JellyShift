@@ -11,7 +11,7 @@ public class Diamond : MonoBehaviour, IProperty
 
     public int DiamondCount { get => PlayerPrefs.GetInt(Constants.DIAMOND_COUNT, 0); set => PlayerPrefs.SetInt(Constants.DIAMOND_COUNT, value); }
 
-    private Text diamondCountText;
+    private CanvasManager canvasManager;
 
     private bool isCollided = false;
 
@@ -25,15 +25,10 @@ public class Diamond : MonoBehaviour, IProperty
     // Start is called before the first frame update
     void Start()
     {
-        diamondCountText = ObjectManager.Instance.DiamondCountText;
+        canvasManager = CanvasManager.Instance;
+        
 
         transform.DORotate(new Vector3(transform.localEulerAngles.x, Random.Range(80, 100), transform.localEulerAngles.z), .2f, RotateMode.Fast).SetLoops(-1, LoopType.Incremental);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void Interact()
@@ -42,7 +37,7 @@ public class Diamond : MonoBehaviour, IProperty
         {
             DiamondCount++;
             GetComponent<Collider>().enabled = false;
-            diamondCountText.text = DiamondCount.ToString();
+            canvasManager.UpdateDiamondText();
             isCollided = true;
             Destroy(gameObject);
         }

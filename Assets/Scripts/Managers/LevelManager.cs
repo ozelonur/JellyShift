@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance = null;
-    private Levels levels;
-    public int LevelIndex { get => PlayerPrefs.GetInt(Constants.LEVEL_INDEX, 0); set => PlayerPrefs.SetInt(Constants.LEVEL_INDEX, value); }
+    private Levels level;
+    public int LevelIndex { get => PlayerPrefs.GetInt(Constants.LEVEL_INDEX, 1); set => PlayerPrefs.SetInt(Constants.LEVEL_INDEX, value); }
 
     private void Awake()
     {
@@ -18,13 +18,9 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levels = ObjectManager.Instance.Levels;
-        if (LevelIndex >= levels.LevelPrefabs.Length)
-        {
-            LevelIndex = 0;
-        }
+        level = Resources.Load<Levels>("Levels/" + LevelIndex);
 
-        Instantiate(levels.LevelPrefabs[LevelIndex]);
+        Instantiate(level.LevelPrefabs);
     }
 
 

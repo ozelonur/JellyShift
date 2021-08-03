@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89f0648d1d176e409433c50d8356d84, type: 3}
-  m_Name: Settings
+  m_Script: {fileID: 11500000, guid: 1974a3f7a224008479da793bb28c7df9, type: 3}
+  m_Name: 1
   m_EditorClassIdentifier: 
-  speed: 5
-  sensivity: 25
-  xMovementRange: 1
-  minScale: 0.4
-  maxScale: 3
-  thumbleSpeed: 500
-  distance: 100
-  feewerTime: 3
+  levelPrefab: {fileID: 3456425051973233242, guid: ee11d49384dc6f444b0e0b7e4fcf4b67,
+    type: 3}

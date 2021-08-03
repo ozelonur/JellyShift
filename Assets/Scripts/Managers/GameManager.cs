@@ -10,10 +10,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     private ObjectManager objectManager;
     private PlayerController playerController;
-    private LevelManager levelManager;
+    private CanvasManager canvasManager;
 
     public Action GameOver;
     public Action GameComplete;
+
     private void Awake()
     {
         if (Instance == null)
@@ -26,18 +27,10 @@ public class GameManager : MonoBehaviour
     {
         objectManager = ObjectManager.Instance;
         playerController = PlayerController.Instance;
-        levelManager = LevelManager.Instance;
-        objectManager.TapText.text = Constants.TAP_TO_PLAY_TEXT;
+        canvasManager = CanvasManager.Instance;
+        canvasManager.TapText.text = Constants.TAP_TO_PLAY_TEXT;
 
-        objectManager.DiamondCountText.text = Diamond.Instance.DiamondCount.ToString();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnClickStart()
     {
         if (playerController.IsGameOver)
@@ -51,7 +44,7 @@ public class GameManager : MonoBehaviour
         else
         {
             playerController.IsPlaying = true;
-            objectManager.TapText.gameObject.SetActive(false);
+            canvasManager.TapText.gameObject.SetActive(false);
         }
     }
 }

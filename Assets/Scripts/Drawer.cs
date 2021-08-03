@@ -1,24 +1,32 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Drawer : MonoBehaviour
 {
-    LayerMask layerMask;
-    Transform cameraTransform;
-    // Start is called before the first frame update
-    void Start()
-    {
-        cameraTransform = Camera.main.transform;
-    }
+    private PlayerController player;
+    private FeewerManager feewerManager;
 
-    // Update is called once per frame
-    void Update()
+    // Start is called before the first frame update
+    private void Start()
     {
-        layerMask = LayerMask.GetMask(Constants.DRAWER_LAYER);
-        if (Physics.Raycast(cameraTransform.position,transform.forward, 20.0f, layerMask))
+        player = PlayerController.Instance;
+        feewerManager = FeewerManager.Instance;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(Constants.PLAYER))
         {
-            print("Hit to a drawer!");
+            player.PassedObstacleCount++;
+            other.transform.parent.GetComponent<PlayerMovement>().Speed += .4f;
+
+            if (player.PassedObstacleCount >= 4)
+            {
+                feewerManager.Feewer();
+                player.PassedObstacleCount = 0;
+            }
         }
     }
+
 }
